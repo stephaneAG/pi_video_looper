@@ -99,7 +99,8 @@ class VideoLooper(object):
         
         # == Ted edit ==
         # load storage device not found image
-        self.sdOrUsbNotFoundImgPath = "sdOrUsbNotFoundImg.png"
+        #self.sdOrUsbNotFoundImgPath = "sdOrUsbNotFoundImg.png"
+	self.sdOrUsbNotFoundImgPath = "/home/pi/pi_video_looper/Adafruit_Video_Looper/sdOrUsbNotFoundImg.png"
         self.sdOrUsbNotFoundImg = pygame.image.load(self.sdOrUsbNotFoundImgPath)
         self.sdOrUsbNotFoundImgRect = self.sdOrUsbNotFoundImg.get_rect()
 
@@ -166,8 +167,8 @@ class VideoLooper(object):
     # show the following when no USB device is found
     def _sd_or_usb_not_found_screen(self):
         """Render a screen dislaying a warning & two icons of broken SD & USB storage devices."""
-        self.screen.fill((0, 0, 0))
-	self.screen.blit(self.sdOrUsbNotFoundImg, (self.screenSize[0]/2 - self.sdOrUsbNotFoundImgRect.width/2, self.screenSize[1]/2 - self.sdOrUsbNotFoundImgRect.height/2) )
+        self._screen.fill((0, 0, 0))
+	self._screen.blit(self.sdOrUsbNotFoundImg, (self.screenSize[0]/2 - self.sdOrUsbNotFoundImgRect.width/2, self.screenSize[1]/2 - self.sdOrUsbNotFoundImgRect.height/2) )
         pygame.display.update()
     
     def _render_text(self, message, font=None):
