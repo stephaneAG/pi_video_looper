@@ -17,9 +17,9 @@ import pygame
 from model import Playlist
 
 # == Tef edit ==
-sdOrUsbNotFoundImgPath = "./sdOrUsbNotFoundImg.png"
-sdOrUsbNotFoundImg = pygame.image.load(sdOrUsbNotFoundImgPath)
-sdOrUsbNotFoundImgRect = sdOrUsbNotFoundImgPath.get_rect()
+#sdOrUsbNotFoundImgPath = "./sdOrUsbNotFoundImg.png"
+#sdOrUsbNotFoundImg = pygame.image.load(sdOrUsbNotFoundImgPath)
+#sdOrUsbNotFoundImgRect = sdOrUsbNotFoundImgPath.get_rect()
 
 # R:
 # - try mirroring the entire pygame screen ( fcn already implm not yet tested )
@@ -153,16 +153,17 @@ class VideoLooper(object):
     # show the following when no USB device is found
     def _sd_or_usb_not_found_screen(self):
         """Render a screen dislaying a warning & two icons of broken SD & USB storage devices."""
-        self._screen.fill(self._bgcolor)
-        self._screen.blit(sdOrUsbNotFoundImg, sdOrUsbNotFoundImgRect)
+        #self._screen.fill(self._bgcolor)
+        #self._screen.blit(sdOrUsbNotFoundImg, sdOrUsbNotFoundImgRect)
+        self._render_text("FUCK")
         pygame.display.update()
         
     # WARN: not yet tested, but written before I forget to do so -> mirrors the entire screen & not just an image ?
     def _mirror_entire_screen(self):
         """Mirrors the entire screen."""
-        self._screen.fill(self._bgcolor)
-        mirroredScreenSurface = pygame.transform( self._screen.display.get_surface(), false, true ) # mirror_x, mirror_y
-        self._screen.blit(mirroredScreenSurface, size) # size is the size of the screen in which we're fullscreening ;)
+        #self._screen.fill(self._bgcolor)
+        #mirroredScreenSurface = pygame.transform( self._screen.display.get_surface(), false, true ) # mirror_x, mirror_y
+        #self._screen.blit(mirroredScreenSurface, size) # size is the size of the screen in which we're fullscreening ;)
         pygame.display.update()
     
     def _render_text(self, message, font=None):
@@ -221,6 +222,7 @@ class VideoLooper(object):
         ##self._screen.fill(self._bgcolor)
         ##self._screen.blit(label, (sw/2-lw/2, sh/2-lh/2))
         ##pygame.display.update()
+        self._print("below stuff is not working ..")
         self._sd_or_usb_not_found_screen() # blank the screen, blit the no device found img & update display
 
     def _prepare_to_run_playlist(self, playlist):
