@@ -49,6 +49,12 @@ from model import Playlist
 #   config to extend the video player use to read from different file sources
 #   or use different video players.
 class VideoLooper(object):
+    
+    # == Tef edit ==
+    sdOrUsbNotFoundImgPath = None
+    sdOrUsbNotFoundImg = None
+    sdOrUsbNotFoundImgRect = None
+    screensize = None
 
     def __init__(self, config_path):
         """Create an instance of the main video looper application class. Must
@@ -83,12 +89,19 @@ class VideoLooper(object):
         pygame.mouse.set_visible(False)
         size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
         self._screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
+        self.screenSize = size
         self._blank_screen()
         # Set other static internal state.
         self._extensions = self._player.supported_extensions()
         self._small_font = pygame.font.Font(None, 50)
         self._big_font   = pygame.font.Font(None, 250)
         self._running    = True
+        
+        # == Ted edit ==
+        # load storage device not found image
+        self.sdOrUsbNotFoundImgPath = "sdOrUsbNotFoundImg.png"
+        self.sdOrUsbNotFoundImg = pygame.image.load(self.sdOrUsbNotFoundImgPath)
+        self.sdOrUsbNotFoundImgRect = self.sdOrUsbNotFoundImg.get_rect()
 
     def _print(self, message):
         """Print message to standard output if console output is enabled."""
@@ -153,17 +166,8 @@ class VideoLooper(object):
     # show the following when no USB device is found
     def _sd_or_usb_not_found_screen(self):
         """Render a screen dislaying a warning & two icons of broken SD & USB storage devices."""
-        #self._screen.fill(self._bgcolor)
-        #self._screen.blit(sdOrUsbNotFoundImg, sdOrUsbNotFoundImgRect)
-        self._render_text("FUCK")
-        pygame.display.update()
-        
-    # WARN: not yet tested, but written before I forget to do so -> mirrors the entire screen & not just an image ?
-    def _mirror_entire_screen(self):
-        """Mirrors the entire screen."""
-        #self._screen.fill(self._bgcolor)
-        #mirroredScreenSurface = pygame.transform( self._screen.display.get_surface(), false, true ) # mirror_x, mirror_y
-        #self._screen.blit(mirroredScreenSurface, size) # size is the size of the screen in which we're fullscreening ;)
+        self.screen.fill((0, 0, 0))
+	    self.screen.blit(self.sdOrUsbNotFoundImg, (self.screenSize[0]/2 - self.sdOrUsbNotFoundImgRect.width/2, self.screenSize[1]/2 - self.sdOrUsbNotFoundImgRect.height/2) )
         pygame.display.update()
     
     def _render_text(self, message, font=None):
