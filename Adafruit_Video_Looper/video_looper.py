@@ -167,7 +167,7 @@ class VideoLooper(object):
     def _sd_or_usb_not_found_screen(self):
         """Render a screen dislaying a warning & two icons of broken SD & USB storage devices."""
         self.screen.fill((0, 0, 0))
-	    self.screen.blit(self.sdOrUsbNotFoundImg, (self.screenSize[0]/2 - self.sdOrUsbNotFoundImgRect.width/2, self.screenSize[1]/2 - self.sdOrUsbNotFoundImgRect.height/2) )
+	self.screen.blit(self.sdOrUsbNotFoundImg, (self.screenSize[0]/2 - self.sdOrUsbNotFoundImgRect.width/2, self.screenSize[1]/2 - self.sdOrUsbNotFoundImgRect.height/2) )
         pygame.display.update()
     
     def _render_text(self, message, font=None):
