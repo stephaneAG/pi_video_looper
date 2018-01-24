@@ -195,7 +195,8 @@ class VideoLooper(object):
         ## we can fully replace the stuff below by a nice loading animation, generated or sprite based, & also show ip & QR ? )
         # Draw message with number of movies loaded and animate countdown.
         # First render text that doesn't change and get static dimensions.
-        label1 = self._render_text(message + ' Starting playback in:')
+        '''
+	label1 = self._render_text(message + ' Starting playback in:')
         l1w, l1h = label1.get_size()
         sw, sh = self._screen.get_size()
         for i in range(seconds, 0, -1):
@@ -210,6 +211,7 @@ class VideoLooper(object):
             pygame.display.update()
             # Pause for a second between each frame.
             time.sleep(1)
+	'''
 
     def _idle_message(self):
         """Print idle message from file reader."""
