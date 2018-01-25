@@ -37,10 +37,13 @@ service supervisor restart
 
 echo "Setting up boot logo & hiding console ..."
 echo "===========================================" 
+apt-get -y install fbi # dl deps
 cp /boot/cmdline.txt /boot/cmdline_originalBeforePiVideoLooper.txt # backup original cmdline.txt file
 cp custom_cmdline.txt /boot/cmdline.txt # replace by custom cmdline.txt
 cp -r orbisbox_images /boot/orbisbox_images # copy the directory containing the boot logo files
 cp orbisbox_initScript_startupLogo.sh /etc/init.d/orbisbox_initScript_startupLogo.sh # copy logo startup script
 update-rc.d -f orbisbox_initScript_startupLogo.sh defaults # register the startup script
+cp splashscreen.service /etc/systemd/system/splashscreen.service
+systemctl enable splashscreen # R: test with systemctl start splashscreen
 
 echo "Finished!"
