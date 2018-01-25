@@ -28,7 +28,9 @@ case "$1" in
     # stop cursor blinking ( if hasn't been stopped by /boot/cmdline.txt )
     echo -e '\033[?17;0;0c' > /dev/tty1
     # run application to be started
-    cp /home/pi/orbisbox_images/OrbisBox_template_HD3.devFb0raw /dev/fb0 # copy saved framebuffer logo back to /dev/fb0 - left cuz way faster than fbi to hide stuff ;)
+    #cp /home/pi/orbisbox_images/OrbisBox_template_HD3.devFb0raw /dev/fb0 # copy saved framebuffer logo back to /dev/fb0 - left cuz way faster than fbi to hide stuff ;)
+    orbisbox_model="HD3" # to be able to use more generic stuff later ( .. )
+    cp "/home/pi/orbisbox_images/OrbisBox_template_${orbisbox_model}.devFb0raw" /dev/fb0
     # prevent anything to appear ( aka no more -e on top-left )
     #/usr/bin/fbi -T 1 -noverbose -a /home/pi/orbisbox_images/OrbisBox_template_HD3.png # 'll maybe be re-added if of any use ;)
     # hide/disable tty login prompt ( WITHOUT logging in automatically )
