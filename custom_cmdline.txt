@@ -1,0 +1,1 @@
+dwc_otg.lpm_enable=0 console=serial0,115200 console=tty4 root=PARTUUID=4768190d-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait logo.nologo quiet loglevel=0 plymouth.ignore-serial-consoles vt.global_cursor_default=0 splash consoleblank=0
