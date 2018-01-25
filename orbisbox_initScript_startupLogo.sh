@@ -35,7 +35,7 @@ case "$1" in
     # prevent anything to appear ( aka no more -e on top-left )
     #/usr/bin/fbi -T 1 -noverbose -a /home/pi/orbisbox_images/OrbisBox_template_HD3.png # 'll maybe be re-added if of any use ;)
     # hide/disable tty login prompt ( WITHOUT logging in automatically )
-    ##systemctl disable getty@tty1.service # UNCOMMENT OUT ONLY WHEN DONE DEBUGGING !!
+    systemctl disable getty@tty1.service # UNCOMMENT OUT ONLY WHEN DONE DEBUGGING !!
     ;;
   stop)
     echo "[ OrbisBox: startupLogo stops ]"
