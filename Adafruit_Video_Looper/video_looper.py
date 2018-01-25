@@ -265,6 +265,8 @@ class VideoLooper(object):
                 playlist = self._build_playlist()
                 self._prepare_to_run_playlist(playlist)
             # Give the CPU some time to do other tasks.
+	    # == Tef edit ==
+	    # TODO: check messages received from Nodejs server if any ( ex: control playback, start/pause, next, previous, .. )
             time.sleep(0.002)
 
     def signal_quit(self, signal, frame):
