@@ -44,6 +44,6 @@ cp -r orbisbox_images /boot/orbisbox_images # copy the directory containing the 
 cp orbisbox_initScript_startupLogo.sh /etc/init.d/orbisbox_initScript_startupLogo.sh # copy logo startup script
 update-rc.d -f orbisbox_initScript_startupLogo.sh defaults # register the startup script
 cp splashscreen.service /etc/systemd/system/splashscreen.service
-systemctl enable splashscreen # R: test with systemctl start splashscreen
+systemctl enable splashscreen # R: test with systemctl start splashscreen ( R: systemctl daemon-reload if needed )
 
 echo "Finished!"
