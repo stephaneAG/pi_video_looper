@@ -31,11 +31,11 @@ case "$1" in
     #cp /home/pi/orbisbox_images/OrbisBox_template_HD3.devFb0raw /dev/fb0 # copy saved framebuffer logo back to /dev/fb0 - left cuz way faster than fbi to hide stuff ;)
     orbisbox_model="HD3" # to be able to use more generic stuff later ( ex: load from /boot/orbisbox.ini ? .. )
     #cp "/home/pi/orbisbox_images/OrbisBox_template_${orbisbox_model}.devFb0raw" /dev/fb0
-    cp "/boot/orbisbox_images/OrbisBox_template_${orbisbox_model}.devFb0raw" /dev/fb0 # makes more sense & more flexible
+    ##cp "/boot/orbisbox_images/OrbisBox_template_${orbisbox_model}.devFb0raw" /dev/fb0 # makes more sense & more flexible
     # prevent anything to appear ( aka no more -e on top-left )
     #/usr/bin/fbi -T 1 -noverbose -a /home/pi/orbisbox_images/OrbisBox_template_HD3.png # 'll maybe be re-added if of any use ;)
     # hide/disable tty login prompt ( WITHOUT logging in automatically )
-    systemctl disable getty@tty1.service # UNCOMMENT OUT ONLY WHEN DONE DEBUGGING !!
+    ##systemctl disable getty@tty1.service # UNCOMMENT OUT ONLY WHEN DONE DEBUGGING !!
     ;;
   stop)
     echo "[ OrbisBox: startupLogo stops ]"
